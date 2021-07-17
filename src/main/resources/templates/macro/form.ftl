@@ -6,9 +6,6 @@
             <div class="modal-header">
                 <h4 class="modal-title">SCV Files:&nbsp;
                 <div class="info">
-                 <script> $('.info').delay(2000).animate({'opacity':'0'},1000);</script>
-                <#if fileName?exists>${fileName},&nbsp;</#if>
-                <#if toSave?exists>Saved: ${toSave}</#if>
                 </div>
                 </h4>
             </div>
@@ -20,15 +17,6 @@
                 <input type="file" name="hierarchyFile" required="required" placeholder="UNITHIERARCHY.CSV"/><br>
             </div>
 
-        <#if tree?exists>
-
-            <h4> <div id="tree">Structure: <br><br></div></h4>
-           <script>
-               var tree = new Tree(document.getElementById('tree'));
-               tree.json([${tree}]);
-          </script>
-         </#if>
-
 
             <div class="modal-footer">
                 <button type="submit" class="uui-button lime-green">
@@ -39,6 +27,30 @@
     </div>
 
 
+<#if tree?exists>
+ <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Structure:&nbsp;</h4>
+                <div class="info">
+                </div>
+              
+            </div>
+
+            <div class="modal-body">
+                     <h4> <div id="tree"></div></h4>
+                         <script>
+                             var tree = new Tree(document.getElementById('tree'));
+                             tree.json([${tree}]);
+                        </script>
+            </div>
+
+            <div class="modal-footer"></div>
+
+        </div>
+    </div>
+
+ </#if>
 
 </#macro>
 

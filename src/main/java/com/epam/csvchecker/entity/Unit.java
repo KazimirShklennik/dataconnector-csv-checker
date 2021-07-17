@@ -13,12 +13,16 @@ public class Unit {
 
     @JsonIgnore
     private String id;
+
     @JsonIgnore
     private String parentId;
+
     private List<Unit> children;
     private String name;
+
     @JsonRawValue
     private String type;
+
     @JsonIgnore
     private String unitType;
 }
