@@ -38,7 +38,7 @@
             </div>
 
             <div class="modal-body">
-                     <h4> <div id="tree"></div></h4>
+                      <div id="tree"></div>
                          <script>
                              var tree = new Tree(document.getElementById('tree'));
                              tree.json([${tree}]);

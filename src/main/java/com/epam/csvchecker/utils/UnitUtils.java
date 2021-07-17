@@ -12,6 +12,9 @@ import java.util.stream.Collectors;
 
 public class UnitUtils {
 
+    private static final String JSON_FIELD_TYPE = "Tree.FOLDER";
+    private static final String UNIT_NAME_TEMPLATE = "%s (%s)";
+
     private UnitUtils() {
     }
 
@@ -47,7 +50,7 @@ public class UnitUtils {
                                 .parentId(unitRaw.getParentId())
                                 .children(new ArrayList<>())
                                 .unitType(unitRaw.getType())
-                                .name(unitRaw.getName())
+                                .name(String.format(UNIT_NAME_TEMPLATE, unitRaw.getName(), unitRaw.getType()))
                                 .build()
                         )
                 );
@@ -71,20 +74,20 @@ public class UnitUtils {
                 .orElse(null);
     }
 
-    private static void updateTree(List<Unit> nodeTree) {
-        nodeTree.forEach(unit -> {
+    private static void updateTree(List<Unit> unitTree) {
+        unitTree.forEach(unit -> {
             if (!unit.getChildren().isEmpty()) {
-                unit.setType("Tree.FOLDER");
+                unit.setType(JSON_FIELD_TYPE);
                 updateTree(unit);
             }
         });
     }
 
-    private static void updateTree(Unit unit) {
-        if (!unit.getChildren().isEmpty()) {
-            updateTree(unit.getChildren());
+    private static void updateTree(Unit unitTree) {
+        if (!unitTree.getChildren().isEmpty()) {
+            updateTree(unitTree.getChildren());
         } else {
-            unit.setType("Tree.FOLDER");
+            unitTree.setType(JSON_FIELD_TYPE);
         }
     }
 }

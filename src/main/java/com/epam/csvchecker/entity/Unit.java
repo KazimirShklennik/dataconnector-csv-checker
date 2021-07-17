@@ -21,7 +21,7 @@ public class Unit {
     private String name;
 
     @JsonRawValue
-    private String type;
+    private String type; //type for json model
 
     @JsonIgnore
     private String unitType;
