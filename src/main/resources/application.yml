@@ -1,0 +1,31 @@
+spring:
+
+    http:
+        log-request-details: true
+        encoding:
+            charset: UTF-8
+
+    freemarker:
+        enabled: true
+        suffix: .ftl
+        charset: UTF-8
+        content-type: text/html
+        template-loader-path: classpath:/templates/
+        cache: true
+        expose-spring-macro-helpers: true
+        request-context-attribute: requestContext
+
+        resources:
+            static-locations: classpath:/static/
+
+server:
+    port: 8586
+
+logging:
+    level:
+        org:
+            springframework: INFO
+        com:
+            mkyong: INFO
+            zaxxer: INFO
+            root: ERROR
