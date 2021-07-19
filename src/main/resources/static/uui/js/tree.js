@@ -3,8 +3,6 @@ function TreeView(datas, options) {
     this.root.className = "treeview";
     let t = this;
 
-
-
     var defaultOptions = {
         showAlwaysCheckBox: true,
         fold: true,
@@ -25,8 +23,6 @@ function TreeView(datas, options) {
     function groupToggle() {
         $(this).parent().find(">.group").slideToggle("fast");
     }
-
-
 
     // ITEM EVENTS --------------------
     function changeCheckState(value, allChildCheck) {
@@ -92,7 +88,6 @@ function TreeView(datas, options) {
 
     function createTreeViewReq(parentNode, datas, options) {
 
-
         //console.log("datas len:",datas.length, "datas:",datas);
         for (var i = 0; i < datas.length; i++) {
             if (datas[i] != null) {
@@ -119,7 +114,6 @@ function TreeView(datas, options) {
             foldButton.setAttribute("fold-button", 1);
 
             foldButton.onclick = groupToggle.bind(foldButton);
-
             foldButton.isOpened = options.fold;
 
             group.appendChild(foldButton)
@@ -174,7 +168,6 @@ function TreeView(datas, options) {
     }
     this.save = function (type, node) {
         if (type == null) type = "tree";
-
 
         if (type == "tree") {
             if (node == null) {
