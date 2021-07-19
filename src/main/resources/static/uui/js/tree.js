@@ -1,315 +1,244 @@
-'use strict';
+function TreeView(datas, options) {
+    this.root = document.createElement("div");
+    this.root.className = "treeview";
+    let t = this;
 
-{
-  const Emitter = typeof window.Emitter === 'undefined' ? class Emitter {
-    constructor() {
-      this.events = {};
-    }
-    on(name, callback) {
-      this.events[name] = this.events[name] || [];
-      this.events[name].push(callback);
-    }
-    once(name, callback) {
-      callback.once = true;
-      this.on(name, callback);
-    }
-    emit(name, ...data) {
-      if (this.events[name] === undefined ) {
-        return;
-      }
-      for (const c of [...this.events[name]]) {
-        c(...data);
-        if (c.once) {
-          const index = this.events[name].indexOf(c);
-          this.events[name].splice(index, 1);
-        }
-      }
-    }
-  } : window.Emitter;
 
-  class SimpleTree extends Emitter {
-    constructor(parent, properties = {}) {
-      super();
-      // do not toggle with click
-      parent.addEventListener('click', e => {
-        // e.clientX to prevent stopping Enter key
-        // e.detail to prevent dbl-click
-        // e.offsetX to allow plus and minus clicking
-        if (e && e.clientX && e.detail === 1 && e.offsetX >= 0) {
-          return e.preventDefault();
-        }
-        const active = this.active();
-        if (active && active.dataset.type === SimpleTree.FILE) {
-          e.preventDefault();
-          this.emit('action', active);
-          if (properties['no-focus-on-action'] === true) {
-            window.clearTimeout(this.id);
-          }
-        }
-      });
-      parent.classList.add('simple-tree');
-      if (properties.dark) {
-        parent.classList.add('dark');
-      }
-      this.parent = parent.appendChild(document.createElement('details'));
-      this.parent.appendChild(document.createElement('summary'));
-      this.parent.open = true;
-      // use this function to alter a node before being passed to this.file or this.folder
-      this.interrupt = node => node;
-    }
-    append(element, parent, before, callback = () => {}) {
-      if (before) {
-        parent.insertBefore(element, before);
-      }
-      else {
-        parent.appendChild(element);
-      }
-      callback();
-      return element;
-    }
-    file(node, parent = this.parent, before) {
-      parent = parent.closest('details');
-      node = this.interrupt(node);
-      const a = this.append(Object.assign(document.createElement('a'), {
-        textContent: node.name,
-        href: '#'
-      }), parent, before);
-      a.dataset.type = SimpleTree.FILE;
-      this.emit('created', a, node);
-      return a;
-    }
-    folder(node, parent = this.parent, before) {
-      parent = parent.closest('details');
-      node = this.interrupt(node);
-      const details = document.createElement('details');
-      const summary = Object.assign(document.createElement('summary'), {
-        textContent: node.name
-      });
-      details.appendChild(summary);
-      this.append(details, parent, before, () => {
-        details.open = node.open;
-        details.dataset.type = SimpleTree.FOLDER;
-      });
-      this.emit('created', summary, node);
-      return summary;
-    }
-    open(details) {
-      details.open = true;
-    }
-    hierarchy(element = this.active()) {
-      if (this.parent.contains(element)) {
-        const list = [];
-        while (element !== this.parent) {
-          if (element.dataset.type === SimpleTree.FILE) {
-            list.push(element);
-          }
-          else if (element.dataset.type === SimpleTree.FOLDER) {
-            list.push(element.querySelector('summary'));
-          }
-          element = element.parentElement;
-        }
-        return list;
-      }
-      else {
-        return [];
-      }
-    }
-    siblings(element = this.parent.querySelector('a, details')) {
-      if (this.parent.contains(element)) {
-        if (element.dataset.type === undefined) {
-          element = element.parentElement;
-        }
-        return [...element.parentElement.children].filter(e => {
-          return e.dataset.type === SimpleTree.FILE || e.dataset.type === SimpleTree.FOLDER;
-        }).map(e => {
-          if (e.dataset.type === SimpleTree.FILE) {
-            return e;
-          }
-          else {
-            return e.querySelector('summary');
-          }
-        });
-      }
-      else {
-        return [];
-      }
-    }
-    children(details) {
-      const e = details.querySelector('a, details');
-      if (e) {
-        return this.siblings(e);
-      }
-      else {
-        return [];
-      }
-    }
-  }
-  SimpleTree.FILE = 'file';
-  SimpleTree.FOLDER = 'folder';
 
-  class AsyncTree extends SimpleTree {
-    constructor(parent, options) {
-      super(parent, options);
-      // do not allow toggling when folder is loading
-      parent.addEventListener('click', e => {
-        const details = e.target.parentElement;
-        if (details.open && details.dataset.loaded === 'false') {
-          e.preventDefault();
+    var defaultOptions = {
+        showAlwaysCheckBox: true,
+        fold: true,
+        openAllFold:false
+    }
+
+    options = Object.assign(defaultOptions, options);
+
+
+    // GROUP EVENTS ---------------------
+
+    function groupOpen() {
+        $(this).parent().find(">.group").slideDown("fast");
+    }
+    function groupClose() {
+        $(this).parent().find(">.group").slideUp("fast");
+    }
+    function groupToggle() {
+        $(this).parent().find(">.group").slideToggle("fast");
+    }
+
+
+
+    // ITEM EVENTS --------------------
+    function changeCheckState(value, allChildCheck) {
+        var c = this.checked;
+
+        if (value == null || value instanceof MouseEvent) { // TOGGLE CHECK
+            if (c == 0) c = 1;
+            else if (c == 1) c = 0;
+            else if (c == 2) c = 1;
+        } else {
+            c = value;
         }
-      });
-      parent.classList.add('async-tree');
-    }
-    // add open event for folder creation
-    folder(...args) {
-      const summary = super.folder(...args);
-      const details = summary.closest('details');
-      details.addEventListener('toggle', e => {
-        this.emit(details.dataset.loaded === 'false' && details.open ? 'fetch' : 'open', summary);
-      });
-      summary.resolve = () => {
-        details.dataset.loaded = true;
-        this.emit('open', summary);
-      };
-      return summary;
-    }
-    asyncFolder(node, parent, before) {
-      const summary = this.folder(node, parent, before);
-      const details = summary.closest('details');
-      details.dataset.loaded = false;
+        this.checked = c;
+        setCheckState.bind(this)(c);
 
-      if (node.open) {
-        this.open(details);
-      }
 
-      return summary;
+        if (c != 2)
+            checkAllChilds.bind(this)(c);
+        checkControlParents.bind(this)();
     }
-    unloadFolder(summary) {
-      const details = summary.closest('details');
-      details.open = false;
-      const focused = this.active();
-      if (focused && this.parent.contains(focused)) {
-        this.select(details);
-      }
-      [...details.children].slice(1).forEach(e => e.remove());
-      details.dataset.loaded = false;
-    }
-    browse(validate, es = this.siblings()) {
-      for (const e of es) {
-        if (validate(e)) {
-          this.select(e);
-          if (e.dataset.type === SimpleTree.FILE) {
-            return this.emit('browse', e);
-          }
-          const parent = e.closest('details');
-          if (parent.open) {
-            return this.browse(validate, this.children(parent));
-          }
-          else {
-            window.setTimeout(() => {
-              this.once('open', () => this.browse(validate, this.children(parent)));
-              this.open(parent);
-            }, 0);
-            return;
-          }
-        }
-      }
-      this.emit('browse', false);
-    }
-  }
 
-  class SelectTree extends AsyncTree {
-    constructor(parent, options = {}) {
-      super(parent, options);
-      /* multiple clicks outside of elements */
-      parent.addEventListener('click', e => {
-        if (e.detail > 1) {
-          const active = this.active();
-          if (active && active !== e.target) {
-            if (e.target.tagName === 'A' || e.target.tagName === 'SUMMARY') {
-              return this.select(e.target, 'click');
+    function checkAllChilds(value) {
+
+        var $group = $(this).parent(".group");
+        $group.find(".item").each(function (index, el) {
+            setCheckState.bind(el)(value)
+        })
+
+    }
+
+    function checkControlParents() {
+        var $parents = $(this).parents(".treeview .group");
+
+        for (var index = 1 ; index < $parents.length ; index++) {
+            var el = $parents[index];
+            item = $(el).find(">.item").get(0);
+            $children = $(el).find(".group .item");
+            var all1 = true;
+            var all0 = true;
+            for (var i = 0; i < $children.length; i++) {
+                if ($children[i].checked != 1) all1 = false;
+                if ($children[i].checked != 0) all0 = false;
             }
-          }
-          if (active) {
-            this.focus(active);
-          }
+            if (all1) setCheckState.bind(item)(1);
+            else if (all0) setCheckState.bind(item)(0);
+            else setCheckState.bind(item)(2);
         }
-      });
-      window.addEventListener('focus', () => {
-        const active = this.active();
-        if (active) {
-          this.focus(active);
-        }
-      });
-      parent.addEventListener('focusin', e => {
-        const active = this.active();
-        if (active !== e.target) {
-          this.select(e.target, 'focus');
-        }
-      });
-      this.on('created', (element, node) => {
-        if (node.selected) {
-          this.select(element);
-        }
-      });
-      parent.classList.add('select-tree');
-      // navigate
-      if (options.navigate) {
-        this.parent.addEventListener('keydown', e => {
-          const {code} = e;
-          if (code === 'ArrowUp' || code === 'ArrowDown') {
-            this.navigate(code === 'ArrowUp' ? 'backward' : 'forward');
-            e.preventDefault();
-          }
-        });
-      }
     }
-    focus(target) {
-      window.clearTimeout(this.id);
-      this.id = window.setTimeout(() => document.hasFocus() && target.focus(), 100);
-    }
-    select(target) {
-      const summary = target.querySelector('summary');
-      if (summary) {
-        target = summary;
-      }
-      [...this.parent.querySelectorAll('.selected')].forEach(e => e.classList.remove('selected'));
-      target.classList.add('selected');
-      this.focus(target);
-      this.emit('select', target);
-    }
-    active() {
-      return this.parent.querySelector('.selected');
-    }
-    navigate(direction = 'forward') {
-      const e = this.active();
-      if (e) {
-        const list = [...this.parent.querySelectorAll('a, summary')];
-        const index = list.indexOf(e);
-        const candidates = direction === 'forward' ? list.slice(index + 1) : list.slice(0, index).reverse();
-        for (const m of candidates) {
-          if (m.getBoundingClientRect().height) {
-            return this.select(m);
-          }
-        }
-      }
-    }
-  }
 
-  class JSONTree extends SelectTree {
-    json(array, parent) {
-      array.forEach(item => {
-        if (item.type === SimpleTree.FOLDER) {
-          const folder = this[item.asynced ? 'asyncFolder' : 'folder'](item, parent);
-          if (item.children) {
-            this.json(item.children, folder);
-          }
-        }
-        else {
-          this.file(item, parent);
-        }
-      });
-    }
-  }
+    function setCheckState(value) {
 
-  window.Tree = JSONTree;
+        this.checked = value
+        this.setAttribute("check-value", value)
+        if (value == 0) {
+            $(this).find(">[check-icon]")[0].className = "fa fa-circle-thin";
+        }
+        if (value == 1) {
+            $(this).find(">[check-icon]")[0].className = "fa fa-check-circle-o";
+        }
+    }
+
+    /* FIRST CREATION */
+
+    function createTreeViewReq(parentNode, datas, options) {
+
+
+        //console.log("datas len:",datas.length, "datas:",datas);
+        for (var i = 0; i < datas.length; i++) {
+            if (datas[i] != null) {
+                //console.log("datas i:", i, "data:", datas)
+                var data = datas[i];
+                var item = createSingleItem(data);
+                parentNode.appendChild(item);
+                if ("children" in data && data.children.length > 0) {
+                    createTreeViewReq(item, data.children, options)
+                }
+            }
+        }
+    }
+
+    function createSingleItem(data) {
+        var group = document.createElement("p");
+        group.className = "group"
+        if ("className" in options)
+            group.className += options.className;
+
+        if ("fold" in options) {
+            var foldButton = document.createElement("i");
+            foldButton.className = "fa fa-caret-right";
+            foldButton.setAttribute("fold-button", 1);
+
+            foldButton.onclick = groupToggle.bind(foldButton);
+
+            foldButton.isOpened = options.fold;
+
+            group.appendChild(foldButton)
+        }
+
+        // ALERT ADD ICON
+        var item = document.createElement("span");
+        item.className = "item";
+        item.innerHTML = data.name;
+        item.data = data;
+        for (var keys = Object.keys(data), i = 0; i < keys.length ; i++) {
+            item.setAttribute("data-" + keys[i], data[keys[i]]);
+        }
+        if ("checked" in data || options.showAlwaysCheckBox == true) {
+            var checked = document.createElement("i");
+            checked.setAttribute("check-icon", "1");
+            checked.className = "fa ";
+
+            item.prepend(checked);
+
+            if ("checked" in data && data.checked) {
+                setCheckState.bind(item)(data.checked ? 1 : 0);
+            } else {
+                setCheckState.bind(item)(0);
+            }
+
+        }
+
+        item.onclick = changeCheckState.bind(item);
+
+        group.appendChild(item)
+        return group;
+    }
+
+
+    this.update = function () {
+        $(t.root).find(".group").each(function (index, el) {
+            if ($(el).find(".group").length > 0) {
+                $(el).find(">[fold-button]").css("visibility", "visible");
+            } else {
+                $(el).find(">[fold-button]").css("visibility", "hidden");
+            }
+            checkControlParents.bind($(el).find(">.item"))();
+        })
+
+    }
+
+    this.load = function (datas) {
+        $(this.root).empty();
+        createTreeViewReq(this.root, datas, options);
+        this.update();
+    }
+    this.save = function (type, node) {
+        if (type == null) type = "tree";
+
+
+        if (type == "tree") {
+            if (node == null) {
+                var data = [];
+                var $children = $(this.root).find(">.group");
+                for (var i = 0; i < $children.length; i++) {
+                    var child = this.save("tree", $children[i])
+                    data.push(child)
+                }
+                return data;
+            } else {
+                var data = saveSingle($(node).find(">.item")[0]);
+                data.children = []
+                var $children = $(node).find(">.group");
+
+                for (var i = 0; i < $children.length; i++) {
+                    var child = this.save("tree", $children[i])
+                    data.children.push(child);
+                }
+                return data;
+            }
+
+        }
+
+        if (type == "list") {
+            var data = [];
+            var $items = $(this.root).find(".item");
+            for (var i = 0; i < $items.length; i++) {
+                data.push(saveSingle($items[i]));
+            }
+            return data;
+        }
+    }
+    function saveSingle(el) {
+        if (el == null) el = this;
+        ret = Object.assign(
+            { children: [] },
+            el.data,
+            { checked: el.checked });
+
+        return ret;
+    }
+
+    this.load(datas);
+    this.openAllFold = function (item) {
+        if (item == null) item = this.root;
+        $(item).find("[fold-button]").each(function (index, el) {
+
+            groupOpen.bind(this)();
+        })
+    }
+    this.closeAllFold = function (item) {
+        if (item == null) item = this.root;
+        $(item).find("[fold-button]").each(function (index, el) {
+
+            groupClose.bind(this)();
+        })
+    }
+
+    if (options.openAllFold) {
+        this.openAllFold();
+    } else {
+        this.closeAllFold();
+    }
+    return this;
+
 }

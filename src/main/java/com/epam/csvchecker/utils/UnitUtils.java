@@ -12,7 +12,9 @@ import java.util.stream.Collectors;
 
 public class UnitUtils {
 
-    private static final String JSON_FIELD_TYPE = "Tree.FOLDER";
+    private static final String JSON_FIELD_TYPE_FOLDER = "folder";
+    private static final String JSON_FIELD_TYPE_FILE = "file";
+
     private static final String UNIT_NAME_TEMPLATE = "%s (%s)";
 
     private UnitUtils() {
@@ -67,27 +69,8 @@ public class UnitUtils {
                 }
             }
         });
-
-        updateTree(roots);
         return roots.stream()
                 .findFirst()
                 .orElse(null);
-    }
-
-    private static void updateTree(List<Unit> unitTree) {
-        unitTree.forEach(unit -> {
-            if (!unit.getChildren().isEmpty()) {
-                unit.setType(JSON_FIELD_TYPE);
-                updateTree(unit);
-            }
-        });
-    }
-
-    private static void updateTree(Unit unitTree) {
-        if (!unitTree.getChildren().isEmpty()) {
-            updateTree(unitTree.getChildren());
-        } else {
-            unitTree.setType(JSON_FIELD_TYPE);
-        }
     }
 }

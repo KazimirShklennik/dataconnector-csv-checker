@@ -34,7 +34,7 @@
             <#include "footer.ftl">
         </footer>
     </div>
-
+    <script src="<@spring.url '/uui/js/checker.js'/>"></script>
     </body>
     </html>
 </#macro>
