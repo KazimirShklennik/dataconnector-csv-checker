@@ -22,13 +22,6 @@ function TreeView(datas, options) {
         $(this).parent().find(">.group").slideToggle("fast");
     }
 
-    function checkAllChilds(value) {
-        var $group = $(this).parent(".group");
-        $group.find(".item").each(function (index, el) {
-            setCheckState.bind(el)(value)
-        })
-
-    }
 
     function checkControlParents() {
         var $parents = $(this).parents(".treeview .group");
