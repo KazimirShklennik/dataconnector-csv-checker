@@ -1,4 +1,4 @@
-async function check() {
+async function showStructure() {
     let unit = document.getElementById("unitTree");
     let hierarchy = document.getElementById("hierarchy");
     let formData = new FormData();
@@ -12,7 +12,7 @@ async function check() {
     })
     .then(response => {
         let structureDiv = document.getElementById("structureDiv");
-        structureDiv.style.display = "block";    
+        structureDiv.style.display = "block";
 
         response.json().then(data => {
 
@@ -20,12 +20,10 @@ async function check() {
                 [data],
                 {fold:true,openAllFold:false}
             );
-
-            document.getElementById("treeUnits").appendChild(tw.root);
-      
-          });      
-        
-          
+            var treeDiv=document.getElementById("treeUnits");
+            treeDiv.innerHTML = "";
+            treeDiv.appendChild(tw.root);
+          });
     });
 }
 

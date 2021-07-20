@@ -15,8 +15,7 @@
                 <input id="hierarchy" type="file" name="hierarchyFile" required="required" placeholder="UNITHIERARCHY.CSV"/><br>
             </div>
             <div class="modal-footer">
-                  <button class="uui-button lime-green" onclick="check()">CHECK</button>
-
+                  <button class="uui-button lime-green" onclick="showStructure()">Show structure</button>
             </div>
         </div>
     </div>
