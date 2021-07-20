@@ -18,8 +18,8 @@ import java.util.List;
 public class MainController {
 
     @SneakyThrows
-    @PostMapping(value = "/check", consumes = {"multipart/form-data"})
-    public UnitTree uploadFiles(
+    @PostMapping(value = "/showStructure", consumes = {"multipart/form-data"})
+    public UnitTree showStructure(
             @RequestParam("unitFile") MultipartFile unitFile,
             @RequestParam("hierarchyFile") MultipartFile hierarchyFile) {
 

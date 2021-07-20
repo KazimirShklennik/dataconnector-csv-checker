@@ -3,19 +3,17 @@
  <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">SCV Files:&nbsp;
+                <h6 class="modal-title">CSV Files:&nbsp;</h6>
                 <div class="info">
                 </div>
                 </h4>
             </div>
             <div class="modal-body">
-              <H4> Unit.csv: <br><br>
-               <input id="unitTree" type="file" name="unitFile" required="required" placeholder="UNIT.CSV"/><br>
-                    <H4> UNITHIERARCHY.CSV: <br><br>
-                <input id="hierarchy" type="file" name="hierarchyFile" required="required" placeholder="UNITHIERARCHY.CSV"/><br>
+               <input id="unitTree" type="file" name="unitFile" required="required" placeholder="Unit.CSV"/>Unit.csv</input>
+               <input id="hierarchy" type="file" name="hierarchyFile" required="required" placeholder="UnitHierarchy.csv"/>UnitHierarchy.csv</input><br>
             </div>
             <div class="modal-footer">
-                  <button class="uui-button lime-green" onclick="showStructure()">Show structure</button>
+                  <button id="showStructure" class="btn btn-secondary" onclick="showStructure()">Show structure</button>
             </div>
         </div>
     </div>
@@ -23,12 +21,13 @@
  <div id="structureDiv" class="modal-dialog" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Structure:&nbsp;</h4>
+                <h6 class="modal-title">Structure:&nbsp;</h6>
                 <div class="info">
                 </div>
             </div>
             <div class="modal-body">
-            <div id="treeUnits"></div>
+            <div id="treeUnits">
+            </div>
             </div>
             <div class="modal-footer"></div>
         </div>
