@@ -1,4 +1,4 @@
-<#macro form path but_name>
+<#macro form>
 
  <div class="modal-dialog">
         <div class="modal-content">
@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
               <H4> Unit.csv: <br><br>
-               <input id="unit" type="file" name="unitFile" required="required" placeholder="UNIT.CSV"/><br>
+               <input id="unitTree" type="file" name="unitFile" required="required" placeholder="UNIT.CSV"/><br>
                     <H4> UNITHIERARCHY.CSV: <br><br>
                 <input id="hierarchy" type="file" name="hierarchyFile" required="required" placeholder="UNITHIERARCHY.CSV"/><br>
             </div>

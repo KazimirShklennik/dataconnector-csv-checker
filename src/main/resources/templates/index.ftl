@@ -1,4 +1,6 @@
  <#import "macro/main.ftl" as c>
+ <#import "macro/form.ftl" as f>
  <@c.mainPage>
- <#include "/table.ftl">
+      <@f.form>
+      </@f.form>
 </@c.mainPage>

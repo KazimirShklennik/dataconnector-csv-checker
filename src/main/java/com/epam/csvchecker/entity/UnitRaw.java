@@ -11,4 +11,6 @@ public class UnitRaw {
     private String parentId;
     private String name;
     private String type;
+    private boolean isValid;
+    private boolean isValidParent;
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 
 @Slf4j
-@ControllerAdvice(basePackages = {"com.epam.perf"})
+@ControllerAdvice(basePackages = {"com.epam.cdvchecker"})
 public class ExceptionHandlingController {
 
     @ExceptionHandler(value = {Exception.class})

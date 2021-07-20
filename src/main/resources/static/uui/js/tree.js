@@ -4,13 +4,11 @@ function TreeView(datas, options) {
     let t = this;
 
     var defaultOptions = {
-        showAlwaysCheckBox: true,
         fold: true,
         openAllFold:false
     }
 
     options = Object.assign(defaultOptions, options);
-
 
     // GROUP EVENTS ---------------------
 
@@ -24,28 +22,7 @@ function TreeView(datas, options) {
         $(this).parent().find(">.group").slideToggle("fast");
     }
 
-    // ITEM EVENTS --------------------
-    function changeCheckState(value, allChildCheck) {
-        var c = this.checked;
-
-        if (value == null || value instanceof MouseEvent) { // TOGGLE CHECK
-            if (c == 0) c = 1;
-            else if (c == 1) c = 0;
-            else if (c == 2) c = 1;
-        } else {
-            c = value;
-        }
-        this.checked = c;
-        setCheckState.bind(this)(c);
-
-
-        if (c != 2)
-            checkAllChilds.bind(this)(c);
-        checkControlParents.bind(this)();
-    }
-
     function checkAllChilds(value) {
-
         var $group = $(this).parent(".group");
         $group.find(".item").each(function (index, el) {
             setCheckState.bind(el)(value)
@@ -91,8 +68,8 @@ function TreeView(datas, options) {
         //console.log("datas len:",datas.length, "datas:",datas);
         for (var i = 0; i < datas.length; i++) {
             if (datas[i] != null) {
-                //console.log("datas i:", i, "data:", datas)
-                var data = datas[i];
+//                console.log("datas i:", i, "data:", datas)
+                 var data = datas[i];
                 var item = createSingleItem(data);
                 parentNode.appendChild(item);
                 if ("children" in data && data.children.length > 0) {
@@ -115,39 +92,32 @@ function TreeView(datas, options) {
 
             foldButton.onclick = groupToggle.bind(foldButton);
             foldButton.isOpened = options.fold;
-
             group.appendChild(foldButton)
         }
 
         // ALERT ADD ICON
         var item = document.createElement("span");
         item.className = "item";
-        item.innerHTML = data.name;
+        var project=" ("+ data.unitType+")"
+        var resultName=data.name + project.bold();
+
+        if(!data.validParent){
+            resultName=resultName+ " &#9650;".fontcolor("#FFA500");
+            }
+
+        if(!data.valid){
+            resultName=resultName.fontcolor("#FFA500");
+        }
+
+        item.innerHTML = resultName;
         item.data = data;
         for (var keys = Object.keys(data), i = 0; i < keys.length ; i++) {
             item.setAttribute("data-" + keys[i], data[keys[i]]);
         }
-        if ("checked" in data || options.showAlwaysCheckBox == true) {
-            var checked = document.createElement("i");
-            checked.setAttribute("check-icon", "1");
-            checked.className = "fa ";
-
-            item.prepend(checked);
-
-            if ("checked" in data && data.checked) {
-                setCheckState.bind(item)(data.checked ? 1 : 0);
-            } else {
-                setCheckState.bind(item)(0);
-            }
-
-        }
-
-        item.onclick = changeCheckState.bind(item);
 
         group.appendChild(item)
         return group;
     }
-
 
     this.update = function () {
         $(t.root).find(".group").each(function (index, el) {

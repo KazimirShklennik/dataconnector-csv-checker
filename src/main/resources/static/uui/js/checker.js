@@ -1,5 +1,5 @@
 async function check() {
-    let unit = document.getElementById("unit");
+    let unit = document.getElementById("unitTree");
     let hierarchy = document.getElementById("hierarchy");
     let formData = new FormData();
 
@@ -18,7 +18,7 @@ async function check() {
 
             var tw = new TreeView(
                 [data],
-                {showAlwaysCheckBox:false,fold:true,openAllFold:false}
+                {fold:true,openAllFold:false}
             );
 
             document.getElementById("treeUnits").appendChild(tw.root);

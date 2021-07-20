@@ -2,7 +2,6 @@
     <!DOCTYPE html>
     <#import "/spring.ftl" as spring />
     <html lang="en">
-
     <head>
         <meta charset="utf-8"/>
         <title>Csv-checker</title>
@@ -17,17 +16,7 @@
         </header>
         <div class="uui-main-container">
             <main>
-               <#if successfully?exists>
-                        <div class="uui-alert-messages lime-green" role="alert">
-                        <script> $('.uui-alert-messages').delay(2000).animate({'opacity':'0'},500);</script>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true"><span></span><span></span></span>
-                            </button>
-                            <i class="fa fa-exclamation-triangle"></i>
-                            <strong></strong> SUCCESSFULLY!
-                        </div>
-                        </#if>
-                <#nested>
+               <#nested>
             </main>
         </div>
         <footer>

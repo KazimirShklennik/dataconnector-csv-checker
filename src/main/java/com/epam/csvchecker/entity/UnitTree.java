@@ -7,11 +7,13 @@ import java.util.List;
 
 @Data
 @Builder
-public class Unit {
+public class UnitTree {
 
     private String id;
     private String parentId;
-    private List<Unit> children;
+    private List<UnitTree> children;
     private String name;
     private String unitType;
+    private boolean isValid;
+    private boolean isValidParent;
 }
