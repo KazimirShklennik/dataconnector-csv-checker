@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 public class Application {
 
     public static void main(String[] args) {
-        log.info("STARTING PERF DATASOURCE HELPER");
+        log.info("STARTING CSV CHECKER");
         SpringApplication.run(Application.class, args);
     }
 }
