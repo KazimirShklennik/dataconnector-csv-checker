@@ -102,6 +102,7 @@ function TreeView(datas, options) {
             resultName=resultName.fontcolor("#FFA500");
         }
 
+        addTooltip(item, data);
         item.innerHTML = resultName;
         item.data = data;
         for (var keys = Object.keys(data), i = 0; i < keys.length ; i++) {
@@ -111,6 +112,24 @@ function TreeView(datas, options) {
         group.appendChild(item)
         return group;
     }
+
+function addTooltip(item, data){
+    var tooltipMainDiv = document.createElement("div");
+         tooltipMainDiv.classList.add("tooltip");
+         tooltipMainDiv.classList.add("bs-tooltip-top");
+         tooltipMainDiv.setAttribute("role", "tooltip");
+         var tooltipArrow = document.createElement("div");
+         tooltipArrow.classList.add("arrow");
+         var tooltipInner = document.createElement("div");
+         tooltipInner.classList.add("tooltip-inner");
+         tooltipInner.innerHTML = data.id;
+         tooltipArrow.appendChild(tooltipInner);
+         tooltipMainDiv.appendChild(tooltipArrow);
+         item.setAttribute("data-toggle", "tooltip");
+         item.setAttribute("data-placement", "right");
+         item.setAttribute("title", "Unit ID: "+data.id);
+         item.appendChild(tooltipMainDiv);
+}
 
     this.update = function () {
         $(t.root).find(".group").each(function (index, el) {

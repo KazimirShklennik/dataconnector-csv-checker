@@ -6,6 +6,9 @@ async function showStructure() {
     formData.append("unitFile", unit.files[0]);
     formData.append("hierarchyFile", hierarchy.files[0]);
 
+     var buttonShowStructure = document.getElementById("showStructure");
+       addSpinnerToButton(buttonShowStructure);
+
     const rawResponse = await fetch('/showStructure', {
         method: 'POST',
         body: formData
@@ -19,7 +22,7 @@ async function showStructure() {
         textCenterDiv.classList.add("text-center");
 
         var spinnerDiv = document.createElement("div");
-        spinnerDiv.classList.add("spinner-grow");
+        spinnerDiv.classList.add("spinner-border");
         spinnerDiv.classList.add("text-secondary");
         spinnerDiv.setAttribute("role", "status");
 
@@ -39,9 +42,21 @@ async function showStructure() {
             );
             var treeDiv=document.getElementById("treeUnits");
             treeDiv.innerHTML = "";
+            buttonShowStructure.innerHTML = "Show structure";
             treeDiv.appendChild(tw.root);
           });
     });
+}
+
+function addSpinnerToButton(buttonId) {
+     buttonId.innerHTML="";
+     var spinnerButtonSpan = document.createElement("span");
+     spinnerButtonSpan.classList.add("spinner-border");
+     spinnerButtonSpan.classList.add("spinner-border-sm");
+     spinnerButtonSpan.setAttribute("role", "status");
+     spinnerButtonSpan.setAttribute("aria-hidden", "true");
+     buttonId.appendChild(spinnerButtonSpan);
+     buttonId.innerHTML+= "&nbsp;Loading..."
 }
 
 

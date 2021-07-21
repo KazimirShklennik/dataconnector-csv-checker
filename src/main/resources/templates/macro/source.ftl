@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="<@spring.url '/uui/bootstrap/css/bootstrap.min.css'/>"/>
 <link rel="stylesheet" href=" <@spring.url '/uui/fonts/font-awesome/css/font-awesome.min.css'/>"/>
 <link rel="stylesheet" href=" <@spring.url '/uui/css/uui-all.css'/>"/>
 
