@@ -8,14 +8,18 @@ async function showStructure() {
 
      var buttonShowStructure = document.getElementById("showStructure");
        addSpinnerToButton(buttonShowStructure);
-
-    const rawResponse = await fetch('/showStructure', {
+       var treeDiv=document.getElementById("treeUnits");
+    const rawResponse = await fetch('/structure', {
         method: 'POST',
         body: formData
     })
     .then(response => {
+             if (!response.ok) {
+                treeDiv.innerHTML = "";
+            throw new Error("error");
+         }
+
         let structureDiv = document.getElementById("structureDiv");
-        let treeDiv=document.getElementById("treeUnits");
         structureDiv.style.display = "block";
         treeDiv.innerHTML = "";
         var textCenterDiv = document.createElement("div");
@@ -45,7 +49,24 @@ async function showStructure() {
             buttonShowStructure.innerHTML = "Show structure";
             treeDiv.appendChild(tw.root);
           });
-    });
+    })
+    .catch((error) => {
+            let structureDiv = document.getElementById("structureDiv");
+             structureDiv.style.display = "block";
+             var buttonShowStructure = document.getElementById("showStructure");
+             buttonShowStructure.innerHTML = "Show structure";
+             let treeDiv=document.getElementById("treeUnits");
+            treeDiv.appendChild(alert(error));
+       });
+}
+
+function alert(error){
+ var alert = document.createElement("div");
+     alert.classList.add("alert");
+     alert.classList.add("alert-danger");
+     alert.setAttribute("role", "status");
+     alert.innerHTML = error;
+     return alert;
 }
 
 function addSpinnerToButton(buttonId) {
