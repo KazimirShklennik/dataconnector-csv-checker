@@ -6,13 +6,17 @@ import com.epam.csvchecker.service.ValidationService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ValidationServiceImpl implements ValidationService {
-
     @Override
-    public String checkUnitCsv(List<UnitCsv> units) {
-        return null;
+    public List<String> checkUnitCsv(List<UnitCsv> units) {
+
+        return units.stream()
+                .map(UnitCsv::getUnitName)
+                .limit(5)
+                .collect(Collectors.toList());
     }
 
     @Override

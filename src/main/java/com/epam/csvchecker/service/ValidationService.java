@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ValidationService {
 
-    String checkUnitCsv(List<UnitCsv> units);
+    List<String> checkUnitCsv(List<UnitCsv> units);
 
     String checkHierarchyCsv(List<HierarchyCsv> hierarchyCsv);
 

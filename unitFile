@@ -1,197 +1,158 @@
-"Unit ID";"Entity type";"Unit type";"Unit name";"Activity";"Map of other unit attributes";"Update date"
-1;unit;Organization;EPAM;TRUE;{};"2021-07-16 14:19"
-2;unit;Business Function;Anywhere;TRUE;{};"2021-07-16 14:19"
-3;unit;Business Function;Asset management;TRUE;{};"2021-07-16 14:19"
-4;unit;Business Function;Business development & sales;TRUE;{};"2021-07-16 14:19"
-5;unit;Business Function;Delivery;TRUE;{};"2021-07-16 14:19"
-6;unit;Business Function;Education;TRUE;{};"2021-07-16 14:19"
-7;unit;Business Function;Finance management;TRUE;{};"2021-07-16 14:19"
-8;unit;Business Function;Human resources;TRUE;{};"2021-07-16 14:19"
-9;unit;Business Function;IT operations;TRUE;{};"2021-07-16 14:19"
-10;unit;Business Function;Operations;TRUE;{};"2021-07-16 14:19"
-11;unit;Business Function;Talent acquisition;TRUE;{};"2021-07-16 14:19"
-13;unit;Business Function;Engineering excellence;TRUE;{};"2021-07-16 14:19"
-14;unit;Business Function;Products and services delivery;TRUE;{};"2021-07-16 14:19"
-15;unit;Business Function;Resource management;TRUE;{};"2021-07-16 14:19"
-16;unit;Business Function;Business partnering service;TRUE;{};"2021-07-16 14:19"
-17;unit;Business Function;FP&A;TRUE;{};"2021-07-16 14:19"
-18;unit;Business Function;Finance accounting;TRUE;{};"2021-07-16 14:19"
-19;unit;Business Function;Procurement;TRUE;{};"2021-07-16 14:19"
-20;unit;Business Function;CSR;TRUE;{};"2021-07-16 14:19"
-21;unit;Business Function;People management;TRUE;{};"2021-07-16 14:19"
-22;unit;Business Function;WPM;TRUE;{};"2021-07-16 14:19"
-23;unit;Business Function;Security management;TRUE;{};"2021-07-16 14:19"
-24;unit;Business Function;Procurement;TRUE;{};"2021-07-16 14:19"
-26;unit;Project;EPM-PLX;TRUE;{};"2021-07-16 14:19"
-27;unit;Project;EPM-CGAM;TRUE;{};"2021-07-16 14:19"
-28;unit;Project;EPM-IASS;TRUE;{};"2021-07-16 14:19"
-29;unit;Project;EPM-CRM;TRUE;{};"2021-07-16 14:19"
-30;unit;Project;EPM-DMTM;TRUE;{};"2021-07-16 14:19"
-31;unit;Project;EPMC-IACC;TRUE;{};"2021-07-16 14:19"
-32;unit;Project;EPM-RDUA;TRUE;{};"2021-07-16 14:19"
-33;unit;Project;EPM-PRPA;TRUE;{};"2021-07-16 14:19"
-34;unit;Project;EPM-E3S;TRUE;{};"2021-07-16 14:19"
-35;unit;Project;EPM-HRMS;TRUE;{};"2021-07-16 14:19"
-36;unit;Project;EPM-DDO;TRUE;{};"2021-07-16 14:19"
-37;unit;Project;EPM-ECO;TRUE;{};"2021-07-16 14:19"
-38;unit;Project;EPM-EOA;TRUE;{};"2021-07-16 14:19"
-39;unit;Project;EPM-HDC;TRUE;{};"2021-07-16 14:19"
-40;unit;Project;EPM-HIVE;TRUE;{};"2021-07-16 14:19"
-41;unit;Project;EPM-IASS;TRUE;{};"2021-07-16 14:19"
-42;unit;Project;EPM-ITMR;TRUE;{};"2021-07-16 14:19"
-43;unit;Project;EPM-SSO;TRUE;{};"2021-07-16 14:19"
-44;unit;Project;EPM-URL;TRUE;{};"2021-07-16 14:19"
-45;unit;Project;EPM-AIS;TRUE;{};"2021-07-16 14:19"
-46;unit;Project;EPM-BSRV;TRUE;{};"2021-07-16 14:19"
-47;unit;Project;EPM-CRM;TRUE;{};"2021-07-16 14:19"
-48;unit;Project;EPM-CFC;TRUE;{};"2021-07-16 14:19"
-49;unit;Project;EPM-LVL;TRUE;{};"2021-07-16 14:19"
-50;unit;Project;EPM-DMPL;TRUE;{};"2021-07-16 14:19"
-51;unit;Project;EPM-EMIS;TRUE;{};"2021-07-16 14:19"
-52;unit;Project;EPM-PBI;TRUE;{};"2021-07-16 14:19"
-53;unit;Project;EPM-CTC;TRUE;{};"2021-07-16 14:19"
-54;unit;Project;EPM-CMPR;TRUE;{};"2021-07-16 14:19"
-55;unit;Project;EPM-PRMO;TRUE;{};"2021-07-16 14:19"
-56;unit;Project;EPM-PRTL;TRUE;{};"2021-07-16 14:19"
-57;unit;Project;EPM-RUHR;TRUE;{};"2021-07-16 14:19"
-58;unit;Project;EPM-SCO;TRUE;{};"2021-07-16 14:19"
-59;unit;Project;EPM-TMC;TRUE;{};"2021-07-16 14:19"
-60;unit;Project;EPM-UPSA;TRUE;{};"2021-07-16 14:19"
-61;unit;Project;EPM-VTS;TRUE;{};"2021-07-16 14:19"
-62;unit;Project;EPM-WEB;TRUE;{};"2021-07-16 14:19"
-63;unit;Project;EPMD-CERT;TRUE;{};"2021-07-16 14:19"
-64;unit;Project;EPM-DATA;TRUE;{};"2021-07-16 14:19"
-65;unit;Project;EPM-ACE;TRUE;{};"2021-07-16 14:19"
-66;unit;Project;EPM-ADPT;TRUE;{};"2021-07-16 14:19"
-67;unit;Project;EPM-COSR;TRUE;{};"2021-07-16 14:19"
-68;unit;Project;EPM-DCE;TRUE;{};"2021-07-16 14:19"
-69;unit;Project;EPM-IASS;TRUE;{};"2021-07-16 14:19"
-70;unit;Project;EPM-INNV;TRUE;{};"2021-07-16 14:19"
-71;unit;Project;EPM-LVL;TRUE;{};"2021-07-16 14:19"
-72;unit;Project;EPM-MOOC;TRUE;{};"2021-07-16 14:19"
-73;unit;Project;EPM-VCMS;TRUE;{};"2021-07-16 14:19"
-74;unit;Project;EPM-VCMS;TRUE;{};"2021-07-16 14:19"
-75;unit;Project;EPM-VCMS;TRUE;{};"2021-07-16 14:19"
-76;unit;Project;EPM-VCMS;TRUE;{};"2021-07-16 14:19"
-77;unit;Project;EPM-DMPL;TRUE;{};"2021-07-16 14:19"
-78;unit;Project;EPM-IASS;TRUE;{};"2021-07-16 14:19"
-79;unit;Project;EPM-PRJ;TRUE;{};"2021-07-16 14:19"
-80;unit;Project;EPM-TIME;TRUE;{};"2021-07-16 14:19"
-81;unit;Project;EPM-UPSA;TRUE;{};"2021-07-16 14:19"
-82;unit;Project;EPM-DCE;TRUE;{};"2021-07-16 14:19"
-83;unit;Project;EPM-LVL;TRUE;{};"2021-07-16 14:19"
-84;unit;Project;EPM-IGA;TRUE;{};"2021-07-16 14:19"
-85;unit;Project;EPM-SURV;TRUE;{};"2021-07-16 14:19"
-86;unit;Project;EPM-ISDP;TRUE;{};"2021-07-16 14:19"
-87;unit;Project;EPM-AWB2;TRUE;{};"2021-07-16 14:19"
-88;unit;Project;EPM-STAF;TRUE;{};"2021-07-16 14:19"
-89;unit;Project;EPM-SRDR;TRUE;{};"2021-07-16 14:19"
-91;unit;Service;EXAM TAKING SYSTEM;TRUE;{};"2021-07-16 14:19"
-92;unit;Service;ONBOARDING;TRUE;{};"2021-07-16 14:19"
-93;unit;Service;AUTOINT;TRUE;{};"2021-07-16 14:19"
-94;unit;Service;WPM ANALYTICS;TRUE;{};"2021-07-16 14:19"
-95;unit;Service;BILLING SERVICE;TRUE;{};"2021-07-16 14:19"
-96;unit;Service;CARBON FOOTPRINT;TRUE;{};"2021-07-16 14:19"
-97;unit;Service;ASSET MANAGER;TRUE;{};"2021-07-16 14:19"
-98;unit;Service;DOCUMENT COMPARATOR;TRUE;{};"2021-07-16 14:19"
-99;unit;Service;CONTRIBUTE;TRUE;{};"2021-07-16 14:19"
-100;unit;Service;Revenue Forecasting & Support;TRUE;{};"2021-07-16 14:19"
-101;unit;Service;Revenue Forecasting & Support;TRUE;{};"2021-07-16 14:19"
-102;unit;Service;CRM;TRUE;{};"2021-07-16 14:19"
-103;unit;Service;CRM;TRUE;{};"2021-07-16 14:19"
-104;unit;Service;CTC;TRUE;{};"2021-07-16 14:19"
-105;unit;Service;People Science & Analytics;TRUE;{};"2021-07-16 14:19"
-106;unit;Service;PERF;TRUE;{};"2021-07-16 14:19"
-107;unit;Service;PERF;TRUE;{};"2021-07-16 14:19"
-108;unit;Service;TEAMS;TRUE;{};"2021-07-16 14:19"
-109;unit;Service;TEAMS;TRUE;{};"2021-07-16 14:19"
-110;unit;Service;HEALTH;TRUE;{};"2021-07-16 14:19"
-111;unit;Service;HEALTH;TRUE;{};"2021-07-16 14:19"
-112;unit;Service;TEAMS;TRUE;{};"2021-07-16 14:19"
-113;unit;Service;TEAMS;TRUE;{};"2021-07-16 14:19"
-114;unit;Service;Enterprise Data Model;TRUE;{};"2021-07-16 14:19"
-115;unit;Service;PNL FOR DELIVERY;TRUE;{};"2021-07-16 14:19"
-116;unit;Service;PNL FOR DELIVERY;TRUE;{};"2021-07-16 14:19"
-117;unit;Service;PNL FOR DELIVERY;TRUE;{};"2021-07-16 14:19"
-118;unit;Service;PNL FOR DELIVERY;TRUE;{};"2021-07-16 14:19"
-119;unit;Service;PRODUCTIVITY STREAMING;TRUE;{};"2021-07-16 14:19"
-120;unit;Service;Productivity Analytics;TRUE;{};"2021-07-16 14:19"
-121;unit;Service;PRODUCTIVITY REPORTING DWH;TRUE;{};"2021-07-16 14:19"
-122;unit;Service;TELESCOPE;TRUE;{};"2021-07-16 14:19"
-123;unit;Service;Corporate Data Model;TRUE;{};"2021-07-16 14:19"
-124;unit;Service;DATALAKE;TRUE;{};"2021-07-16 14:19"
-125;unit;Service;DATA CATALOG;TRUE;{};"2021-07-16 14:19"
-126;unit;Service;DATAHUB;TRUE;{};"2021-07-16 14:19"
-127;unit;Service;FP&A;TRUE;{};"2021-07-16 14:19"
-128;unit;Service;DOCS;TRUE;{};"2021-07-16 14:19"
-129;unit;Service;SUPPORT;TRUE;{};"2021-07-16 14:19"
-130;unit;Service;GLOBAL MENU;TRUE;{};"2021-07-16 14:19"
-131;unit;Service;PEOPLE;TRUE;{};"2021-07-16 14:19"
-132;unit;Service;JIRA;TRUE;{};"2021-07-16 14:19"
-133;unit;Service;JIRA;TRUE;{};"2021-07-16 14:19"
-134;unit;Service;JIRA;TRUE;{};"2021-07-16 14:19"
-135;unit;Service;JIRA;TRUE;{};"2021-07-16 14:19"
-136;unit;Service;KB;TRUE;{};"2021-07-16 14:19"
-137;unit;Service;KB;TRUE;{};"2021-07-16 14:19"
-138;unit;Service;KB;TRUE;{};"2021-07-16 14:19"
-139;unit;Service;KB;TRUE;{};"2021-07-16 14:19"
-140;unit;Service;BANNER SERVER;TRUE;{};"2021-07-16 14:19"
-141;unit;Service;BANNER SERVER;TRUE;{};"2021-07-16 14:19"
-142;unit;Service;BANNER SERVER;TRUE;{};"2021-07-16 14:19"
-143;unit;Service;BANNER SERVER;TRUE;{};"2021-07-16 14:19"
-144;unit;Service;Internal Applications Reporting;TRUE;{};"2021-07-16 14:19"
-145;unit;Service;Internal Applications Reporting;TRUE;{};"2021-07-16 14:19"
-146;unit;Service;Internal Applications Reporting;TRUE;{};"2021-07-16 14:19"
-147;unit;Service;Internal Applications Reporting;TRUE;{};"2021-07-16 14:19"
-148;unit;Service;Internal Applications Reporting;TRUE;{};"2021-07-16 14:19"
-149;unit;Service;Internal Applications Reporting;TRUE;{};"2021-07-16 14:19"
-150;unit;Service;Internal Applications Reporting;TRUE;{};"2021-07-16 14:19"
-151;unit;Service;Internal Applications Reporting;TRUE;{};"2021-07-16 14:19"
-152;unit;Service;IDENTITY GOVERNANCE AND ADMINISTRATION;TRUE;{};"2021-07-16 14:19"
-153;unit;Service;INNOVATION PORTAL;TRUE;{};"2021-07-16 14:19"
-154;unit;Service;ISDP SERVICES;TRUE;{};"2021-07-16 14:19"
-155;unit;Service;IT Management Reporting;TRUE;{};"2021-07-16 14:19"
-156;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-157;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-158;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-159;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-160;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-161;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-162;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-163;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-164;unit;Service;COMPETENCY;TRUE;{};"2021-07-16 14:19"
-165;unit;Service;COURSES;TRUE;{};"2021-07-16 14:19"
-166;unit;Service;PBI;TRUE;{};"2021-07-16 14:19"
-167;unit;Service;PlusX Data Analytics;TRUE;{};"2021-07-16 14:19"
-168;unit;Service;PROJECTS;TRUE;{};"2021-07-16 14:19"
-169;unit;Service;COMPENSATION;TRUE;{};"2021-07-16 14:19"
-170;unit;Service;PRPA(UiPath);TRUE;{};"2021-07-16 14:19"
-171;unit;Service;INFOPORTAL;TRUE;{};"2021-07-16 14:19"
-172;unit;Service;E-SCHEDULER;TRUE;{};"2021-07-16 14:19"
-173;unit;Service;HRBOARD;TRUE;{};"2021-07-16 14:19"
-174;unit;Service;INFORMATION HUB;TRUE;{};"2021-07-16 14:19"
-175;unit;Service;STAFFING RADAR;TRUE;{};"2021-07-16 14:19"
-176;unit;Service;SSO QRADAR;TRUE;{};"2021-07-16 14:19"
-177;unit;Service;SSO ARTIFACTS;TRUE;{};"2021-07-16 14:19"
-178;unit;Service;STAFFING DESK;TRUE;{};"2021-07-16 14:19"
-179;unit;Service;ANTIPHISHING;TRUE;{};"2021-07-16 14:19"
-180;unit;Service;TIME;TRUE;{};"2021-07-16 14:19"
-181;unit;Service;Learn;TRUE;{};"2021-07-16 14:19"
-182;unit;Service;UPSA;TRUE;{};"2021-07-16 14:19"
-183;unit;Service;UPSA;TRUE;{};"2021-07-16 14:19"
-184;unit;Service;UPSA;TRUE;{};"2021-07-16 14:19"
-185;unit;Service;UPSA;TRUE;{};"2021-07-16 14:19"
-186;unit;Service;EPA.MS URL SHORTENER;TRUE;{};"2021-07-16 14:19"
-187;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};"2021-07-16 14:19"
-188;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};"2021-07-16 14:19"
-189;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};"2021-07-16 14:19"
-190;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};"2021-07-16 14:19"
-191;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};"2021-07-16 14:19"
-192;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};"2021-07-16 14:19"
-193;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};"2021-07-16 14:19"
-194;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};"2021-07-16 14:19"
-195;unit;Service;VACATION;TRUE;{};"2021-07-16 14:19"
-196;unit;Service;EPAM.COM;TRUE;{};"2021-07-16 14:19"
-197;unit;Service;WF TRAINING PORTAL;TRUE;{};"2021-07-16 14:19"
-198;unit;Service;WORKFUSION;TRUE;{};"2021-07-16 14:19"
-199;unit;Service;CERTIFICATION DASHBOARD;TRUE;{};"2021-07-16 14:19"
+Unit ID;Entity type;Unit type;Unit name;Activity;Map of other unit attributes;Update date
+1;unit;ORGANIZATION;EPAM;TRUE;{};2021-07-16 19:38
+2;unit;Business Function;Anywhere;TRUE;{};2021-07-16 19:38
+3;unit;Business Function;Asset management;TRUE;{};2021-07-16 19:38
+4;unit;Business Function;Business development & sales;TRUE;{};2021-07-16 19:38
+5;unit;Business Function;Delivery;TRUE;{};2021-07-16 19:38
+6;unit;Business Function;Education;TRUE;{};2021-07-16 19:38
+7;unit;Business Function;Finance management;TRUE;{};2021-07-16 19:38
+8;unit;Business Function;Human resources;TRUE;{};2021-07-16 19:38
+9;unit;Business Function;IT operations;TRUE;{};2021-07-16 19:38
+10;unit;Business Function;Operations;TRUE;{};2021-07-16 19:38
+11;unit;Business Function;Talent acquisition;TRUE;{};2021-07-16 19:38
+13;unit;Business Function;Engineering excellence;TRUE;{};2021-07-16 19:38
+14;unit;Business Function;Products and services delivery;TRUE;{};2021-07-16 19:38
+15;unit;Business Function;Resource management;TRUE;{};2021-07-16 19:38
+16;unit;Business Function;Business partnering service;TRUE;{};2021-07-16 19:38
+17;unit;Business Function;FP&A;TRUE;{};2021-07-16 19:38
+18;unit;Business Function;Finance accounting;TRUE;{};2021-07-16 19:38
+19;unit;Business Function;Procurement;TRUE;{};2021-07-16 19:38
+20;unit;Business Function;CSR;TRUE;{};2021-07-16 19:38
+21;unit;Business Function;People management;TRUE;{};2021-07-16 19:38
+22;unit;Business Function;WPM;TRUE;{};2021-07-16 19:38
+23;unit;Business Function;Security management;TRUE;{};2021-07-16 19:38
+24;unit;Business Function;Procurement;TRUE;{};2021-07-16 19:38
+26;unit;Project;EPM-PLX;TRUE;{};2021-07-16 19:38
+27;unit;Project;EPM-CGAM;TRUE;{};2021-07-16 19:38
+28;unit;Project;EPM-IASS;TRUE;{};2021-07-16 19:38
+29;unit;Project;EPM-CRM;TRUE;{};2021-07-16 19:38
+30;unit;Project;EPM-DMTM;TRUE;{};2021-07-16 19:38
+31;unit;Project;EPMC-IACC;TRUE;{};2021-07-16 19:38
+32;unit;Project;EPM-LVL;TRUE;{};2021-07-16 19:38
+33;unit;Project;EPM-DCE;TRUE;{};2021-07-16 19:38
+34;unit;Project;EPM-DMPL;TRUE;{};2021-07-16 19:38
+35;unit;Project;EPM-IASS;TRUE;{};2021-07-16 19:38
+36;unit;Project;EPM-PRJ;TRUE;{};2021-07-16 19:38
+37;unit;Project;EPM-TIME;TRUE;{};2021-07-16 19:38
+38;unit;Project;EPM-UPSA;TRUE;{};2021-07-16 19:38
+39;unit;Project;EPM-LVL;TRUE;{};2021-07-16 19:38
+40;unit;Project;EPM-RDUA;TRUE;{};2021-07-16 19:38
+41;unit;Project;EPM-PRPA;TRUE;{};2021-07-16 19:38
+42;unit;Project;EPM-BSRV;TRUE;{};2021-07-16 19:38
+43;unit;Project;EPM-CRM;TRUE;{};2021-07-16 19:38
+44;unit;Project;EPM-DMPL;TRUE;{};2021-07-16 19:38
+45;unit;Project;EPM-EMIS;TRUE;{};2021-07-16 19:38
+46;unit;Project;EPM-PBI;TRUE;{};2021-07-16 19:38
+47;unit;Project;EPM-CMPR;TRUE;{};2021-07-16 19:38
+48;unit;Project;EPM-CTC;TRUE;{};2021-07-16 19:38
+49;unit;Project;EPM-VCMS;TRUE;{};2021-07-16 19:38
+50;unit;Project;EPM-E3S;TRUE;{};2021-07-16 19:38
+51;unit;Project;EPM-HRMS;TRUE;{};2021-07-16 19:38
+52;unit;Project;EPM-CFC;TRUE;{};2021-07-16 19:38
+53;unit;Project;EPM-ACE;TRUE;{};2021-07-16 19:38
+54;unit;Project;EPM-ADPT;TRUE;{};2021-07-16 19:38
+55;unit;Project;EPM-COSR;TRUE;{};2021-07-16 19:38
+56;unit;Project;EPM-DATA;TRUE;{};2021-07-16 19:38
+57;unit;Project;EPM-DCE;TRUE;{};2021-07-16 19:38
+58;unit;Project;EPM-IASS;TRUE;{};2021-07-16 19:38
+59;unit;Project;EPM-INNV;TRUE;{};2021-07-16 19:38
+60;unit;Project;EPM-LVL;TRUE;{};2021-07-16 19:38
+61;unit;Project;EPM-MOOC;TRUE;{};2021-07-16 19:38
+62;unit;Project;EPM-PRMO;TRUE;{};2021-07-16 19:38
+63;unit;Project;EPM-PRTL;TRUE;{};2021-07-16 19:38
+64;unit;Project;EPM-RUHR;TRUE;{};2021-07-16 19:38
+65;unit;Project;EPM-SCO;TRUE;{};2021-07-16 19:38
+66;unit;Project;EPM-TMC;TRUE;{};2021-07-16 19:38
+67;unit;Project;EPM-UPSA;TRUE;{};2021-07-16 19:38
+68;unit;Project;EPM-VTS;TRUE;{};2021-07-16 19:38
+69;unit;Project;EPM-WEB;TRUE;{};2021-07-16 19:38
+70;unit;Project;EPMD-CERT;TRUE;{};2021-07-16 19:38
+71;unit;Project;EPM-AWB2;TRUE;{};2021-07-16 19:38
+72;unit;Project;EPM-ISDP;TRUE;{};2021-07-16 19:38
+73;unit;Project;EPM-SRDR;TRUE;{};2021-07-16 19:38
+74;unit;Project;EPM-STAF;TRUE;{};2021-07-16 19:38
+75;unit;Project;EPM-DDO;TRUE;{};2021-07-16 19:38
+76;unit;Project;EPM-ECO;TRUE;{};2021-07-16 19:38
+77;unit;Project;EPM-EOA;TRUE;{};2021-07-16 19:38
+78;unit;Project;EPM-HDC;TRUE;{};2021-07-16 19:38
+79;unit;Project;EPM-HIVE;TRUE;{};2021-07-16 19:38
+80;unit;Project;EPM-IASS;TRUE;{};2021-07-16 19:38
+81;unit;Project;EPM-ITMR;TRUE;{};2021-07-16 19:38
+82;unit;Project;EPM-SSO;TRUE;{};2021-07-16 19:38
+83;unit;Project;EPM-URL;TRUE;{};2021-07-16 19:38
+84;unit;Project;EPM-IGA;TRUE;{};2021-07-16 19:38
+85;unit;Project;EPM-SURV;TRUE;{};2021-07-16 19:38
+86;unit;Project;EPM-VCMS;TRUE;{};2021-07-16 19:38
+87;unit;Project;EPM-AIS;TRUE;{};2021-07-16 19:38
+89;unit;Service;PlusX Data Analytics;TRUE;{};2021-07-16 19:38
+90;unit;Service;ASSET MANAGER;TRUE;{};2021-07-16 19:38
+91;unit;Service;Internal Applications Reporting;TRUE;{};2021-07-16 19:38
+92;unit;Service;CRM;TRUE;{};2021-07-16 19:38
+93;unit;Service;PRODUCTIVITY REPORTING DWH;TRUE;{};2021-07-16 19:38
+94;unit;Service;PRODUCTIVITY STREAMING;TRUE;{};2021-07-16 19:38
+95;unit;Service;Productivity Analytics;TRUE;{};2021-07-16 19:38
+96;unit;Service;WF TRAINING PORTAL;TRUE;{};2021-07-16 19:38
+97;unit;Service;WORKFUSION;TRUE;{};2021-07-16 19:38
+98;unit;Service;COMPETENCY;TRUE;{};2021-07-16 19:38
+99;unit;Service;HEALTH;TRUE;{};2021-07-16 19:38
+100;unit;Service;PERF;TRUE;{};2021-07-16 19:38
+101;unit;Service;TEAMS;TRUE;{};2021-07-16 19:38
+102;unit;Service;PNL FOR DELIVERY;TRUE;{};2021-07-16 19:38
+103;unit;Service;JIRA;TRUE;{};2021-07-16 19:38
+104;unit;Service;PROJECTS;TRUE;{};2021-07-16 19:38
+105;unit;Service;TIME;TRUE;{};2021-07-16 19:38
+106;unit;Service;UPSA;TRUE;{};2021-07-16 19:38
+107;unit;Service;COMPETENCY;TRUE;{};2021-07-16 19:38
+108;unit;Service;E-SCHEDULER;TRUE;{};2021-07-16 19:38
+109;unit;Service;BILLING SERVICE;TRUE;{};2021-07-16 19:38
+110;unit;Service;Revenue Forecasting & Support;TRUE;{};2021-07-16 19:38
+111;unit;Service;PRPA(UiPath);TRUE;{};2021-07-16 19:38
+112;unit;Service;PNL FOR DELIVERY;TRUE;{};2021-07-16 19:38
+113;unit;Service;FP&A;TRUE;{};2021-07-16 19:38
+114;unit;Service;PBI;TRUE;{};2021-07-16 19:38
+115;unit;Service;DOCUMENT COMPARATOR;TRUE;{};2021-07-16 19:38
+116;unit;Service;CTC;TRUE;{};2021-07-16 19:38
+117;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};2021-07-16 19:38
+118;unit;Service;CARBON FOOTPRINT;TRUE;{};2021-07-16 19:38
+119;unit;Service;TELESCOPE;TRUE;{};2021-07-16 19:38
+120;unit;Service;PEOPLE;TRUE;{};2021-07-16 19:38
+121;unit;Service;EXAM TAKING SYSTEM;TRUE;{};2021-07-16 19:38
+122;unit;Service;ONBOARDING;TRUE;{};2021-07-16 19:38
+123;unit;Service;CONTRIBUTE;TRUE;{};2021-07-16 19:38
+124;unit;Service;People Science & Analytics;TRUE;{};2021-07-16 19:38
+125;unit;Service;TEAMS;TRUE;{};2021-07-16 19:38
+126;unit;Service;BANNER SERVER;TRUE;{};2021-07-16 19:38
+127;unit;Service;Internal Applications Reporting;TRUE;{};2021-07-16 19:38
+128;unit;Service;INNOVATION PORTAL;TRUE;{};2021-07-16 19:38
+129;unit;Service;COMPETENCY;TRUE;{};2021-07-16 19:38
+130;unit;Service;COURSES;TRUE;{};2021-07-16 19:38
+131;unit;Service;COMPENSATION;TRUE;{};2021-07-16 19:38
+132;unit;Service;INFOPORTAL;TRUE;{};2021-07-16 19:38
+133;unit;Service;HRBOARD;TRUE;{};2021-07-16 19:38
+134;unit;Service;INFORMATION HUB;TRUE;{};2021-07-16 19:38
+135;unit;Service;Learn;TRUE;{};2021-07-16 19:38
+136;unit;Service;UPSA;TRUE;{};2021-07-16 19:38
+137;unit;Service;VACATION;TRUE;{};2021-07-16 19:38
+138;unit;Service;EPAM.COM;TRUE;{};2021-07-16 19:38
+139;unit;Service;CERTIFICATION DASHBOARD;TRUE;{};2021-07-16 19:38
+140;unit;Service;WPM ANALYTICS;TRUE;{};2021-07-16 19:38
+141;unit;Service;ISDP SERVICES;TRUE;{};2021-07-16 19:38
+142;unit;Service;STAFFING RADAR;TRUE;{};2021-07-16 19:38
+143;unit;Service;STAFFING DESK;TRUE;{};2021-07-16 19:38
+144;unit;Service;Enterprise Data Model;TRUE;{};2021-07-16 19:38
+145;unit;Service;Corporate Data Model;TRUE;{};2021-07-16 19:38
+146;unit;Service;DATA CATALOG;TRUE;{};2021-07-16 19:38
+147;unit;Service;DATAHUB;TRUE;{};2021-07-16 19:38
+148;unit;Service;DATALAKE;TRUE;{};2021-07-16 19:38
+149;unit;Service;DOCS;TRUE;{};2021-07-16 19:38
+150;unit;Service;SUPPORT;TRUE;{};2021-07-16 19:38
+151;unit;Service;GLOBAL MENU;TRUE;{};2021-07-16 19:38
+152;unit;Service;KB;TRUE;{};2021-07-16 19:38
+153;unit;Service;IT Management Reporting;TRUE;{};2021-07-16 19:38
+154;unit;Service;SSO ARTIFACTS;TRUE;{};2021-07-16 19:38
+155;unit;Service;SSO QRADAR;TRUE;{};2021-07-16 19:38
+156;unit;Service;EPA.MS URL SHORTENER;TRUE;{};2021-07-16 19:38
+157;unit;Service;IDENTITY GOVERNANCE AND ADMINISTRATION;TRUE;{};2021-07-16 19:38
+158;unit;Service;ANTIPHISHING;TRUE;{};2021-07-16 19:38
+159;unit;Service;VENDOR CONTRACT MANAGEMENT;TRUE;{};2021-07-16 19:38
+160;unit;Service;AUTOINT;TRUE;{};2021-07-16 19:38
