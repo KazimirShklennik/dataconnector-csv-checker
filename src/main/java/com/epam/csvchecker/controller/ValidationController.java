@@ -19,15 +19,16 @@ public class ValidationController {
 
     private final ValidationService validationService;
 
-    @PostMapping(value = "/units", consumes = {"multipart/form-data"})
-    public List<String> checkUnits(
+    @PostMapping(value = "/error-units", consumes = {"multipart/form-data"})
+    public List<UnitCsv> getErrors(
             @RequestParam("unitFile") MultipartFile unitFile) {
         List<UnitCsv> unitsCsv = CsvReaderUtils.readUnits(unitFile);
-        return validationService.checkUnitCsv(unitsCsv);
+        List<UnitCsv> errorUnitCsv = validationService.getErrorUnitCsv(unitsCsv);
+        return validationService.getErrorUnitCsv(unitsCsv);
     }
 
-    @GetMapping(value = "/hierarchy")
-    public String checkHierarchy(
+    @GetMapping(value = "/error-hierarchy")
+    public List<HierarchyCsv> checkHierarchy(
             @RequestParam("hierarchyFile") MultipartFile hierarchyFile) {
         List<HierarchyCsv> hierarchy = CsvReaderUtils.readHierarchy(hierarchyFile);
         return validationService.checkHierarchyCsv(hierarchy);

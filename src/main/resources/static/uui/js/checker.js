@@ -7,6 +7,7 @@ async function showStructure() {
     formData.append("hierarchyFile", hierarchy.files[0]);
 
     var buttonShowStructure = document.getElementById("showStructure");
+      let resultDiv = document.getElementById("resultDiv");
     addSpinnerToButton(buttonShowStructure);
     var unitInfo = document.getElementById("unitInfo");
     const rawResponse = await fetch('/structure', {
@@ -19,7 +20,6 @@ async function showStructure() {
                 throw new Error("Check files please.");
             }
 
-            let resultDiv = document.getElementById("resultDiv");
             resultDiv.style.display = "block";
             let title = document.getElementById("title");
             addTextToBlock(title, "Structure");
@@ -39,11 +39,8 @@ async function showStructure() {
             });
         })
         .catch((error) => {
-            let resultDiv = document.getElementById("resultDiv");
             resultDiv.style.display = "block";
-            var buttonShowStructure = document.getElementById("showStructure");
-            buttonShowStructure.innerHTML = "Show structure";
-            let unitInfo = document.getElementById("unitInfo");
+             addTextToBlock(buttonShowStructure, "Show structure");
             unitInfo.appendChild(alert(error));
         });
 }
@@ -53,33 +50,31 @@ async function checkUnits() {
     let formData = new FormData();
     formData.append("unitFile", unit.files[0]);
     var buttonCheckUnits = document.getElementById("checkUnits");
+    var resultDiv = document.getElementById("resultDiv");
+    var unitInfo = document.getElementById("unitInfo");
     addSpinnerToButton(buttonCheckUnits);
     let title = document.getElementById("title");
-    addTextToBlock(title, "Units");
-    const rawResponse = await fetch('/units', {
+    addTextToBlock(title, "Error Units");
+    const rawResponse = await fetch('/error-units', {
         method: 'POST',
         body: formData
     })
         .then(response => {
-            var resultDiv = document.getElementById("resultDiv");
-            var unitInfo = document.getElementById("unitInfo");
             if (!response.ok) {
                 addTextToBlock(unitInfo, "");
-                throw new Error("Check files please.");
+                throw new Error("Check Unit file please.");
             }
             resultDiv.style.display = "block";
             response.json().then(data => {
                addTextToBlock(unitInfo, "");
-               unitInfo.appendChild(alert(data));
+                data.forEach(unit =>unitInfo.appendChild(alert(unit.unitName)));
+
                addTextToBlock(buttonCheckUnits, "Check units");
             })
         })
-        .catch((error) => {
-                    let resultDiv = document.getElementById("resultDiv");
+        .catch((error) => {                   
                     resultDiv.style.display = "block";
-                    var buttonCheckUnits = document.getElementById("checkUnits");
                     addTextToBlock(buttonCheckUnits, "Check units");
-                    let unitInfo = document.getElementById("unitInfo");
                     unitInfo.appendChild(alert(error));
                 });
 }

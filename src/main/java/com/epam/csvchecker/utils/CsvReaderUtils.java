@@ -12,8 +12,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -74,14 +76,18 @@ public class CsvReaderUtils {
         }
     }
 
-    @SneakyThrows
     private static UnitCsv createUnitCsvModel(List<String> unit) {
 
         if (unit.size() < UNIT_FIELDS_SIZE) {
             log.warn("Check unit.scv. Line: {}", unit);
             return null;
         }
-
+        Date date=null;
+        try {
+           date=dateFormat.parse(unit.get(6).trim());
+        } catch (ParseException e) {
+            log.warn("Check date. Line: {}", unit);
+        }
         return UnitCsv.builder()
                 .unitId(unit.get(0).trim())
                 .entityType(unit.get(1).trim())
@@ -89,7 +95,7 @@ public class CsvReaderUtils {
                 .unitName(unit.get(3).trim())
                 .activity(Boolean.parseBoolean(unit.get(4).trim()))
                 .mapOfOtherUnitAttributes(unit.get(5).trim())
-                .updateDate(dateFormat.parse(unit.get(6).trim()))
+                .updateDate(date)
                 .build();
     }
 
